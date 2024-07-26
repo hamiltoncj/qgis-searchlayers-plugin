@@ -14,17 +14,17 @@
         <translation>ヘルプ</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="212"/>
+        <location filename="../searchDialog.py" line="225"/>
         <source>&lt;All Fields&gt;</source>
         <translation>&lt;すべての列（フィールド）&gt;</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="260"/>
+        <location filename="../searchDialog.py" line="273"/>
         <source>Layer</source>
         <translation>レイヤ</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="260"/>
+        <location filename="../searchDialog.py" line="273"/>
         <source>Feature ID</source>
         <translation>地物ID</translation>
     </message>
@@ -34,62 +34,62 @@
         <translation>検索結果</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="257"/>
+        <location filename="../searchDialog.py" line="270"/>
         <source>Field</source>
         <translation>列（フィールド）</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="375"/>
+        <location filename="../searchDialog.py" line="388"/>
         <source>Results</source>
         <translation>結果</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="260"/>
+        <location filename="../searchDialog.py" line="273"/>
         <source>Field 1</source>
         <translation>列（フィールド）1</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="260"/>
+        <location filename="../searchDialog.py" line="273"/>
         <source>Results 1</source>
         <translation>結果1</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="260"/>
+        <location filename="../searchDialog.py" line="273"/>
         <source>Field 2</source>
         <translation>列（フィールド）2</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="260"/>
+        <location filename="../searchDialog.py" line="273"/>
         <source>Results 2</source>
         <translation>結果2</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="325"/>
+        <location filename="../searchDialog.py" line="338"/>
         <source>Invalid Search String</source>
         <translation>無効な検索文字列</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="330"/>
+        <location filename="../searchDialog.py" line="343"/>
         <source>Search string is empty</source>
         <translation>検索文字列が空です</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="183"/>
+        <location filename="../searchDialog.py" line="196"/>
         <source>&lt;All Layers&gt;</source>
         <translation>&lt;全レイヤ&gt;</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="183"/>
+        <location filename="../searchDialog.py" line="196"/>
         <source>&lt;Selected Layers&gt;</source>
         <translation>&lt;選択レイヤ&gt;</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="183"/>
+        <location filename="../searchDialog.py" line="196"/>
         <source>&lt;Visible Layers&gt;</source>
         <translation>&lt;表示レイヤ&gt;</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="292"/>
+        <location filename="../searchDialog.py" line="305"/>
         <source>There are no vector layers to search</source>
         <translation type="unfinished"></translation>
     </message>

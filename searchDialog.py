@@ -17,7 +17,7 @@ from qgis.PyQt.uic import loadUiType
 from qgis.PyQt.QtWidgets import QDialog, QAbstractItemView, QTableWidget, QTableWidgetItem,  QMenu, QAction
 from qgis.PyQt.QtCore import Qt, QThread, QEvent, QCoreApplication
 
-from qgis.core import QgsVectorLayer, Qgis, QgsProject, QgsWkbTypes, QgsMapLayer, QgsFields, QgsExpressionContextUtils
+from qgis.core import QgsVectorLayer, Qgis, QgsProject, QgsWkbTypes, QgsMapLayer, QgsFields, QgsExpressionContextUtils, QgsSettings
 from .searchWorker import Worker
 from .fuzzyWorker import FuzzyWorker
 
@@ -84,6 +84,11 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
         self.last_search_str = ''
         self.last_search_str2 = ''
         self.layers_need_updating = True
+        
+        # Set the Zoom action to that which was last used.
+        qset = QgsSettings()
+        zoomaction = int(qset.value('/SearchLayers/Zoom', 0))  # Default is Do Nothing
+        self.zoomPanComboBox.setCurrentIndex(zoomaction)
 
     def show_context_menu(self, pos):
 
@@ -99,8 +104,16 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
 
         context_menu.exec_(self.resultsTable.mapToGlobal(pos))
 
+    def closeEvent(self, e):
+        # Save the state of the zoom pan combobox
+        qset = QgsSettings()
+        qset.setValue('/SearchLayers/Zoom', self.zoomPanComboBox.currentIndex())
+        QDialog.closeEvent(self, e)
+
     def closeDialog(self):
         '''Close the dialog box when the Close button is pushed'''
+        qset = QgsSettings()
+        qset.setValue('/SearchLayers/Zoom', self.zoomPanComboBox.currentIndex())
         self.hide()
 
     def eventFilter(self, source, e):

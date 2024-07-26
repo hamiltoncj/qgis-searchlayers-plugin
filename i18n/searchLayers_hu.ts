@@ -14,17 +14,17 @@
         <translation>Súgó</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="212"/>
+        <location filename="../searchDialog.py" line="225"/>
         <source>&lt;All Fields&gt;</source>
         <translation>&lt;Minden mező&gt;</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="260"/>
+        <location filename="../searchDialog.py" line="273"/>
         <source>Layer</source>
         <translation>Réteg</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="260"/>
+        <location filename="../searchDialog.py" line="273"/>
         <source>Feature ID</source>
         <translation>Elem azon.</translation>
     </message>
@@ -34,62 +34,62 @@
         <translation>Keresési eredmények</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="257"/>
+        <location filename="../searchDialog.py" line="270"/>
         <source>Field</source>
         <translation>Mező</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="375"/>
+        <location filename="../searchDialog.py" line="388"/>
         <source>Results</source>
         <translation>Eredmények</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="260"/>
+        <location filename="../searchDialog.py" line="273"/>
         <source>Field 1</source>
         <translation>1. mező</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="260"/>
+        <location filename="../searchDialog.py" line="273"/>
         <source>Results 1</source>
         <translation>1. eredmények</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="260"/>
+        <location filename="../searchDialog.py" line="273"/>
         <source>Field 2</source>
         <translation>2. mező</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="260"/>
+        <location filename="../searchDialog.py" line="273"/>
         <source>Results 2</source>
         <translation>2. eredmények</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="325"/>
+        <location filename="../searchDialog.py" line="338"/>
         <source>Invalid Search String</source>
         <translation>Hibás keresett szöveg</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="330"/>
+        <location filename="../searchDialog.py" line="343"/>
         <source>Search string is empty</source>
         <translation>Keresett szöveg üres</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="183"/>
+        <location filename="../searchDialog.py" line="196"/>
         <source>&lt;All Layers&gt;</source>
         <translation>&lt;Miden réteg&gt;</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="183"/>
+        <location filename="../searchDialog.py" line="196"/>
         <source>&lt;Selected Layers&gt;</source>
         <translation>&lt;Kiválasztott rétegek&gt;</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="183"/>
+        <location filename="../searchDialog.py" line="196"/>
         <source>&lt;Visible Layers&gt;</source>
         <translation>&lt;Látható rétegek&gt;</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="292"/>
+        <location filename="../searchDialog.py" line="305"/>
         <source>There are no vector layers to search</source>
         <translation>Nincsenek vektor rétegek a kereséshez</translation>
     </message>
