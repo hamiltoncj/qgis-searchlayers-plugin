@@ -42,7 +42,7 @@ class OpenRecordAction(QAction):
         selectedItems = self.parentWidget().selectedItems()
         # print(len(selectedItems))
         selectedRow = selectedItems[0].row()
-        foundid = self.parentWidget().item(selectedRow, 0).data(Qt.UserRole)
+        foundid = self.parentWidget().item(selectedRow, 0).data(Qt.ItemDataRole.UserRole)
         selectedLayer = self.results[foundid][0]
         selectedFeature = self.results[foundid][1]
         self.iface.openFeatureForm(selectedLayer, selectedFeature, True)
@@ -70,13 +70,13 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
         self.layerListComboBox.activated.connect(self.layerSelected)
         self.searchFieldComboBox.addItems([tr('<All Fields>')])
         self.maxResults = 2000
-        self.resultsTable.setEditTriggers(QTableWidget.NoEditTriggers)
+        self.resultsTable.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
         self.resultsTable.setColumnCount(4)
         self.resultsTable.setSortingEnabled(True)
         self.resultsTable.setHorizontalHeaderLabels([tr('Layer'), tr('Feature ID'), tr('Field'), tr('Search Results')])
-        self.resultsTable.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.resultsTable.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
         self.resultsTable.itemSelectionChanged.connect(self.select_feature)
-        self.resultsTable.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.resultsTable.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
         self.resultsTable.customContextMenuRequested.connect(self.show_context_menu)
 
         # self.resultsTable.viewport().installEventFilter(self)
@@ -105,7 +105,7 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
             )
         )
 
-        context_menu.exec_(self.resultsTable.mapToGlobal(pos))
+        context_menu.exec(self.resultsTable.mapToGlobal(pos))
 
     def closeEvent(self, e):
         # Save the state of the zoom pan combobox
@@ -120,7 +120,7 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
         self.hide()
 
     def eventFilter(self, source, e):
-        if e.type() == QEvent.MouseButtonPress:
+        if e.type() == QEvent.Type.MouseButtonPress:
             self.button_pressed = e.button()
         return super().eventFilter(source, e)
 
@@ -151,7 +151,7 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
             if len(selectedItems) == 0:
                 return
             selectedRow = selectedItems[0].row()
-            foundid = self.resultsTable.item(selectedRow, 0).data(Qt.UserRole)
+            foundid = self.resultsTable.item(selectedRow, 0).data(Qt.ItemDataRole.UserRole)
             selectedLayer = self.results[foundid][0]
             selectedFeature = self.results[foundid][1]
             fid = selectedFeature.id()
@@ -163,14 +163,14 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
         # Deselect all selections
         layers = QgsProject.instance().mapLayers().values()
         for layer in layers:
-            if layer.type() == QgsMapLayer.VectorLayer:
+            if layer.type() == QgsMapLayer.LayerType.VectorLayer:
                 layer.removeSelection()
         # Find the layers that are selected and select the features in the layer
         selectedItems = self.resultsTable.selectedItems()
         selectedLayer = None
         for item in selectedItems:
             selectedRow = item.row()
-            foundid = self.resultsTable.item(selectedRow, 0).data(Qt.UserRole)
+            foundid = self.resultsTable.item(selectedRow, 0).data(Qt.ItemDataRole.UserRole)
             selectedLayer = self.results[foundid][0]
             selectedFeature = self.results[foundid][1]
             selectedLayer.select(selectedFeature.id())
@@ -208,13 +208,13 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
                 ProjectInstance).variable('searchlayers-plugin').split(',')
             for i, j in enumerate(ProjectVariable):
                 for layer in layers:
-                    if layer.type() == QgsMapLayer.VectorLayer and not layer.sourceName().startswith('__'):
+                    if layer.type() == QgsMapLayer.LayerType.VectorLayer and not layer.sourceName().startswith('__'):
                         if layer.name() == j:
                             layerlist.append(layer.name())
                             self.searchLayers.append(layer)
         else:
             for layer in layers:
-                if layer.type() == QgsMapLayer.VectorLayer and not layer.sourceName().startswith('__'):
+                if layer.type() == QgsMapLayer.LayerType.VectorLayer and not layer.sourceName().startswith('__'):
                     layerlist.append(layer.name())
                     self.searchLayers.append(layer)
 
@@ -435,7 +435,7 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
         # Save the search found position in the first element of the table. This way
         # we can allow the user to sort the table, but be able to know which entry it is.
         item = QTableWidgetItem(layer.name())
-        item.setData(Qt.UserRole, self.found)
+        item.setData(Qt.ItemDataRole.UserRole, self.found)
         self.resultsTable.setItem(self.found, 0, item)
         self.resultsTable.setItem(self.found, 1, QTableWidgetItem(str(feature.id())))
         if self.is_single_string or self.two_string_match_single:
@@ -505,4 +505,4 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
 
     def showErrorMessage(self, message):
         '''Display an error message.'''
-        self.iface.messageBar().pushMessage("", message, level=Qgis.Warning, duration=2)
+        self.iface.messageBar().pushMessage("", message, level=Qgis.MessageLevel.Warning, duration=2)
