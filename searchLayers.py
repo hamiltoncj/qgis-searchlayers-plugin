@@ -8,7 +8,7 @@
  *                                                                         *
  ***************************************************************************/
 """
-from qgis.PyQt.QtCore import QUrl, QCoreApplication, QTranslator, QSettings
+from qgis.PyQt.QtCore import QCoreApplication, QTranslator, QSettings
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
 
@@ -77,6 +77,5 @@ class SearchLayers:
         
     def help(self):
         '''Display a help page'''
-        url = QUrl.fromLocalFile(os.path.dirname(__file__) + "/index.html").toString()
-        webbrowser.open(url, new=2)
+        webbrowser.open('https://github.com/hamiltoncj/qgis-searchlayers-plugin', new=2)
         
