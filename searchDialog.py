@@ -20,6 +20,7 @@ from qgis.PyQt.QtCore import Qt, QThread, QEvent, QCoreApplication
 from qgis.core import QgsVectorLayer, Qgis, QgsProject, QgsWkbTypes, QgsMapLayer, QgsFields, QgsExpressionContextUtils, QgsSettings
 from .searchWorker import Worker
 from .fuzzyWorker import FuzzyWorker
+from .layerOptionsDialog import LayerOptionsDialog, getDisabledLayerIds, isSearchableLayer
 
 
 def tr(string):
@@ -67,6 +68,7 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
         self.searchButton.clicked.connect(self.runSearch)
         self.clearButton.clicked.connect(self.clearResults)
         self.results2LayersButton.clicked.connect(self.exportResults)
+        self.layerOptionsButton.clicked.connect(self.openLayerOptions)
         self.layerListComboBox.activated.connect(self.layerSelected)
         self.searchFieldComboBox.addItems([tr('<All Fields>')])
         self.maxResults = 2000
@@ -192,6 +194,12 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
         if self.layers_need_updating:
             self.populateLayerListComboBox()
 
+    def openLayerOptions(self):
+        '''Open the dialog that lets the user exclude layers from search.'''
+        dlg = LayerOptionsDialog(self)
+        if dlg.exec():
+            self.populateLayerListComboBox()
+
     def populateLayerListComboBox(self):
         '''Find all the vector layers and add them to the layer list
         that the user can select. In addition the user can search on all
@@ -199,6 +207,7 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
         layerlist = [tr('<All Layers>'), tr('<Selected Layers>'), tr('<Visible Layers>'), tr('<Project Layers>')]
         self.searchLayers = [None, None, None, None]  # This is same size as layerlist
         layers = QgsProject.instance().mapLayers().values()
+        disabled_ids = getDisabledLayerIds()
 
         '''If the project variable "searchlayers-plugin" is present, only the specified layer is covered.
         Multiple layers are separated by ",".'''
@@ -208,13 +217,12 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
                 ProjectInstance).variable('searchlayers-plugin').split(',')
             for i, j in enumerate(ProjectVariable):
                 for layer in layers:
-                    if layer.type() == QgsMapLayer.LayerType.VectorLayer and not layer.sourceName().startswith('__'):
-                        if layer.name() == j:
-                            layerlist.append(layer.name())
-                            self.searchLayers.append(layer)
+                    if isSearchableLayer(layer, disabled_ids) and layer.name() == j:
+                        layerlist.append(layer.name())
+                        self.searchLayers.append(layer)
         else:
             for layer in layers:
-                if layer.type() == QgsMapLayer.LayerType.VectorLayer and not layer.sourceName().startswith('__'):
+                if isSearchableLayer(layer, disabled_ids):
                     layerlist.append(layer.name())
                     self.searchLayers.append(layer)
 
@@ -262,12 +270,8 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
             layers = [self.searchLayers[selectedLayer]]
 
         # Return only the vector layers that are to be searched
-        return [
-            layer
-            for layer in layers
-            if isinstance(layer, QgsVectorLayer)
-            and not layer.sourceName().startswith("__")
-        ]
+        disabled_ids = getDisabledLayerIds()
+        return [layer for layer in layers if isSearchableLayer(layer, disabled_ids)]
 
     def initSearchResultsTable(self):
         self.clearResults()
@@ -291,11 +295,13 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
             self.doneButton.setEnabled(False)
             self.clearButton.setEnabled(False)
             self.results2LayersButton.setEnabled(False)
+            self.layerOptionsButton.setEnabled(False)
         else:
             self.searchButton.setEnabled(True)
             self.clearButton.setEnabled(True)
             self.stopButton.setEnabled(False)
             self.doneButton.setEnabled(True)
+            self.layerOptionsButton.setEnabled(True)
             if len(self.results):
                 self.results2LayersButton.setEnabled(True)
             else:
