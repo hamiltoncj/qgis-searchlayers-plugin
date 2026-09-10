@@ -448,6 +448,16 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
+      <widget class="QPushButton" name="layerOptionsButton">
+       <property name="toolTip">
+        <string>Choose which layers are searchable</string>
+       </property>
+       <property name="text">
+        <string>Layers...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="results2LayersButton">
        <property name="enabled">
         <bool>false</bool>

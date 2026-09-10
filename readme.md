@@ -34,6 +34,8 @@ Under each search string text box a drop down menu specifies how the search stri
 * *&lt;Project layers&gt;* - All layers specified through the project variable **searchlayers-plugin** will be searched (see below). Defaults to *&lt;All Layers&gt;* if the project variable is not set. 
 * *A specific layer* - Any of the vector layers in the QGIS project can be selected. When one is selected, then **Search Fields** will be enabled and by default *&lt;All Fields&gt;* will be displayed, but any field can be chosen from the layer and the search will only search on that layer and field. The list of selectable layers can be constrained via the project variable **searchlayers-plugin** (see below).
 
+**Layers...** - Clicking on this button (bottom left of the dialog) opens a window where you can uncheck layers to exclude them from the Search Layers drop-down and from searches, including *&lt;All Layers&gt;*, *&lt;Selected Layers&gt;*, *&lt;Visible Layers&gt;* and *&lt;Project Layers&gt;*. The selection is saved with the QGIS project.
+
 **Constrain searchable layers via project variable**
   You can constrain the list of selectable layers via the project variable **searchlayers-plugin**. The ***Value*** of the variable is specified as 'layer-name,layer-name,... '. Layer names that do not exist will be ignored.
 
