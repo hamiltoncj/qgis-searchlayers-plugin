@@ -1,3 +1,41 @@
+<head>
+<style>
+body {
+    font:13.34px helvetica,arial,freesans,clean,sans-serif;
+    color:black;
+    line-height:1.4em;
+    background-color: #F8F8F8;
+    padding: 0.7em;
+}
+pre {
+    margin:1em 0;
+    font-size:12px;
+    background-color:#eee;
+    border:1px solid #ddd;
+    padding:5px;
+    line-height:1.5em;
+    color:#444;
+    overflow:auto;
+    -webkit-box-shadow:rgba(0,0,0,0.07) 0 1px 2px inset;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;border-radius:3px;
+}
+pre code {
+    padding:0;
+    font-size:12px;
+    background-color:#eee;
+    border:none;
+}
+code {
+    font-size:12px;
+    background-color:#f8f8ff;
+    color:#444;
+    padding:0 .2em;
+    border:1px solid #dedede;
+}
+</style>
+</head>
+<body>
 <h1>Search Layers Plugin</h1>
 <p>The Search Layers plugin features enhanced textual vector layer searching in QGIS. It provides the ability to search across all layers and all fields. It also features a Fuzzy Search algorithm.</p>
 <p>Search Layers is located in the QGIS Plugins menu under <em>"Plugins-&gt;Search Layers-&gt;Search Layers"</em> or by selecting the tool bar icon. <img src="icon.png" width="24" height="24"></p>
@@ -24,6 +62,7 @@
 <li><em>&lt;Project layers&gt;</em> - All layers specified through the project variable <strong>searchlayers-plugin</strong> will be searched (see below). Defaults to <em>&lt;All Layers&gt;</em> if the project variable is not set. </li>
 <li><em>A specific layer</em> - Any of the vector layers in the QGIS project can be selected. When one is selected, then <strong>Search Fields</strong> will be enabled and by default <em>&lt;All Fields&gt;</em> will be displayed, but any field can be chosen from the layer and the search will only search on that layer and field. The list of selectable layers can be constrained via the project variable <strong>searchlayers-plugin</strong> (see below).</li>
 </ul>
+<p><strong>Layers...</strong> - Clicking on this button (bottom left of the dialog) opens a window where you can uncheck layers to exclude them from the Search Layers drop-down and from searches, including <em>&lt;All Layers&gt;</em>, <em>&lt;Selected Layers&gt;</em>, <em>&lt;Visible Layers&gt;</em> and <em>&lt;Project Layers&gt;</em>. The selection is saved with the QGIS project.</p>
 <p><strong>Constrain searchable layers via project variable</strong>
   You can constrain the list of selectable layers via the project variable <strong>searchlayers-plugin</strong>. The <strong><em>Value</em></strong> of the variable is specified as 'layer-name,layer-name,... '. Layer names that do not exist will be ignored.</p>
 <p><img alt="Specify by variable" src="doc/variable.png" /></p>
@@ -49,3 +88,4 @@
 <h2>Fuzzy search</h2>
 <p>This QGIS plugin makes use of two fuzzy search algorithms. One is based off of the <strong><em>Levenshtein</em></strong> algorithm and the other is a <strong><em>Soundex</em></strong> algorithm. The soundex is really only useful for matching single words that sound the same. This is a screen shot.</p>
 <p><img alt="Search Layers Dialog" src="doc/layersearch3.jpg" /></p>
+</body>
