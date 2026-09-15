@@ -2,111 +2,218 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ja_JP" sourcelanguage="en">
 <context>
-    <name>@default</name>
+    <name></name>
     <message>
-        <location filename="../searchLayers.py" line="67"/>
-        <source>Search Layers</source>
-        <translation>検索レイヤ</translation>
-    </message>
-    <message>
-        <location filename="../searchLayers.py" line="60"/>
-        <source>Help</source>
-        <translation>ヘルプ</translation>
-    </message>
-    <message>
-        <location filename="../searchDialog.py" line="229"/>
+        <location filename="../searchDialog.py" line="73"/>
+        <location filename="../searchDialog.py" line="237"/>
         <source>&lt;All Fields&gt;</source>
-        <translation>&lt;すべての列（フィールド）&gt;</translation>
+        <translation type="unfinished">&lt;すべての列（フィールド）&gt;</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="279"/>
+        <location filename="../searchDialog.py" line="78"/>
+        <location filename="../searchDialog.py" line="280"/>
+        <location filename="../searchDialog.py" line="284"/>
         <source>Layer</source>
-        <translation>レイヤ</translation>
+        <translation type="unfinished">レイヤ</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="279"/>
+        <location filename="../searchDialog.py" line="78"/>
+        <location filename="../searchDialog.py" line="280"/>
+        <location filename="../searchDialog.py" line="285"/>
         <source>Feature ID</source>
-        <translation>地物ID</translation>
+        <translation type="unfinished">地物ID</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="76"/>
-        <source>Search Results</source>
-        <translation>検索結果</translation>
-    </message>
-    <message>
-        <location filename="../searchDialog.py" line="276"/>
+        <location filename="../searchDialog.py" line="78"/>
+        <location filename="../searchDialog.py" line="280"/>
         <source>Field</source>
-        <translation>列（フィールド）</translation>
+        <translation type="unfinished">列（フィールド）</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="400"/>
-        <source>Results</source>
-        <translation>結果</translation>
+        <location filename="../searchDialog.py" line="78"/>
+        <source>Search Results</source>
+        <translation type="unfinished">検索結果</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="279"/>
-        <source>Field 1</source>
-        <translation>列（フィールド）1</translation>
-    </message>
-    <message>
-        <location filename="../searchDialog.py" line="279"/>
-        <source>Results 1</source>
-        <translation>結果1</translation>
-    </message>
-    <message>
-        <location filename="../searchDialog.py" line="279"/>
-        <source>Field 2</source>
-        <translation>列（フィールド）2</translation>
-    </message>
-    <message>
-        <location filename="../searchDialog.py" line="279"/>
-        <source>Results 2</source>
-        <translation>結果2</translation>
-    </message>
-    <message>
-        <location filename="../searchDialog.py" line="350"/>
-        <source>Invalid Search String</source>
-        <translation>無効な検索文字列</translation>
-    </message>
-    <message>
-        <location filename="../searchDialog.py" line="355"/>
-        <source>Search string is empty</source>
-        <translation>検索文字列が空です</translation>
-    </message>
-    <message>
-        <location filename="../searchDialog.py" line="199"/>
+        <location filename="../searchDialog.py" line="207"/>
         <source>&lt;All Layers&gt;</source>
-        <translation>&lt;全レイヤ&gt;</translation>
+        <translation type="unfinished">&lt;全レイヤ&gt;</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="199"/>
+        <location filename="../searchDialog.py" line="207"/>
         <source>&lt;Selected Layers&gt;</source>
-        <translation>&lt;選択レイヤ&gt;</translation>
+        <translation type="unfinished">&lt;選択レイヤ&gt;</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="199"/>
+        <location filename="../searchDialog.py" line="207"/>
         <source>&lt;Visible Layers&gt;</source>
-        <translation>&lt;表示レイヤ&gt;</translation>
+        <translation type="unfinished">&lt;表示レイヤ&gt;</translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="317"/>
+        <location filename="../searchDialog.py" line="207"/>
+        <source>&lt;Project Layers&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../searchDialog.py" line="280"/>
+        <location filename="../searchDialog.py" line="406"/>
+        <source>Results</source>
+        <translation type="unfinished">結果</translation>
+    </message>
+    <message>
+        <location filename="../searchDialog.py" line="286"/>
+        <source>Field 1</source>
+        <translation type="unfinished">列（フィールド）1</translation>
+    </message>
+    <message>
+        <location filename="../searchDialog.py" line="287"/>
+        <source>Results 1</source>
+        <translation type="unfinished">結果1</translation>
+    </message>
+    <message>
+        <location filename="../searchDialog.py" line="288"/>
+        <source>Field 2</source>
+        <translation type="unfinished">列（フィールド）2</translation>
+    </message>
+    <message>
+        <location filename="../searchDialog.py" line="289"/>
+        <source>Results 2</source>
+        <translation type="unfinished">結果2</translation>
+    </message>
+    <message>
+        <location filename="../searchDialog.py" line="323"/>
         <source>There are no vector layers to search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../searchDialog.py" line="356"/>
+        <source>Invalid Search String</source>
+        <translation type="unfinished">無効な検索文字列</translation>
+    </message>
+    <message>
+        <location filename="../searchDialog.py" line="361"/>
+        <source>Search string is empty</source>
+        <translation type="unfinished">検索文字列が空です</translation>
+    </message>
+    <message>
+        <location filename="../searchLayers.py" line="47"/>
         <location filename="../searchLayers.py" line="49"/>
         <source>Search Layers Toolbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../searchDialog.py" line="199"/>
-        <source>&lt;Project Layers&gt;</source>
+        <location filename="../searchLayers.py" line="52"/>
+        <location filename="../searchLayers.py" line="55"/>
+        <location filename="../searchLayers.py" line="63"/>
+        <location filename="../searchLayers.py" line="66"/>
+        <location filename="../searchLayers.py" line="67"/>
+        <source>Search Layers</source>
+        <translation type="unfinished">検索レイヤ</translation>
+    </message>
+    <message>
+        <location filename="../searchLayers.py" line="60"/>
+        <source>Help</source>
+        <translation type="unfinished">ヘルプ</translation>
+    </message>
+</context>
+<context>
+    <name>@default</name>
+    <message>
+        <source>Search Layers</source>
+        <translation type="vanished">検索レイヤ</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="vanished">ヘルプ</translation>
+    </message>
+    <message>
+        <source>&lt;All Fields&gt;</source>
+        <translation type="vanished">&lt;すべての列（フィールド）&gt;</translation>
+    </message>
+    <message>
+        <source>Layer</source>
+        <translation type="vanished">レイヤ</translation>
+    </message>
+    <message>
+        <source>Feature ID</source>
+        <translation type="vanished">地物ID</translation>
+    </message>
+    <message>
+        <source>Search Results</source>
+        <translation type="vanished">検索結果</translation>
+    </message>
+    <message>
+        <source>Field</source>
+        <translation type="vanished">列（フィールド）</translation>
+    </message>
+    <message>
+        <source>Results</source>
+        <translation type="vanished">結果</translation>
+    </message>
+    <message>
+        <source>Field 1</source>
+        <translation type="vanished">列（フィールド）1</translation>
+    </message>
+    <message>
+        <source>Results 1</source>
+        <translation type="vanished">結果1</translation>
+    </message>
+    <message>
+        <source>Field 2</source>
+        <translation type="vanished">列（フィールド）2</translation>
+    </message>
+    <message>
+        <source>Results 2</source>
+        <translation type="vanished">結果2</translation>
+    </message>
+    <message>
+        <source>Invalid Search String</source>
+        <translation type="vanished">無効な検索文字列</translation>
+    </message>
+    <message>
+        <source>Search string is empty</source>
+        <translation type="vanished">検索文字列が空です</translation>
+    </message>
+    <message>
+        <source>&lt;All Layers&gt;</source>
+        <translation type="vanished">&lt;全レイヤ&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;Selected Layers&gt;</source>
+        <translation type="vanished">&lt;選択レイヤ&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;Visible Layers&gt;</source>
+        <translation type="vanished">&lt;表示レイヤ&gt;</translation>
+    </message>
+</context>
+<context>
+    <name>LayerOptionsDialog</name>
+    <message>
+        <location filename="../layerOptionsDialog.ui" line="14"/>
+        <source>Searchable Layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../layerOptionsDialog.ui" line="23"/>
+        <source>Uncheck a layer to exclude it from the Search Layers list and from searches (All Layers, Selected Layers, Visible Layers and Project Layers). The setting is saved with the QGIS project.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../layerOptionsDialog.ui" line="32"/>
+        <source>Select all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../layerOptionsDialog.ui" line="39"/>
+        <source>Deselect all</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>LayerSearchDialog</name>
     <message>
+        <location filename="../searchlayers.ui" line="14"/>
         <location filename="../searchlayers.ui" line="348"/>
         <source>Search Layers</source>
         <translation>検索レイヤ</translation>
@@ -122,26 +229,32 @@
         <translation>ではない</translation>
     </message>
     <message>
+        <location filename="../searchlayers.ui" line="50"/>
         <location filename="../searchlayers.ui" line="146"/>
         <source>equals</source>
         <translation>等しい</translation>
     </message>
     <message>
+        <location filename="../searchlayers.ui" line="55"/>
         <location filename="../searchlayers.ui" line="151"/>
         <source>contains</source>
         <translation>含む</translation>
     </message>
     <message>
+        <location filename="../searchlayers.ui" line="60"/>
         <location filename="../searchlayers.ui" line="156"/>
         <source>begins with</source>
         <translation>から始まる</translation>
     </message>
     <message>
+        <location filename="../searchlayers.ui" line="65"/>
         <location filename="../searchlayers.ui" line="161"/>
         <source>ends with</source>
         <translation>で終わる</translation>
     </message>
     <message>
+        <location filename="../searchlayers.ui" line="73"/>
+        <location filename="../searchlayers.ui" line="169"/>
         <location filename="../searchlayers.ui" line="232"/>
         <source>Case sensitive</source>
         <translation>大文字・小文字を区別する</translation>
@@ -247,27 +360,37 @@
         <translation>選択した地物を表示する</translation>
     </message>
     <message>
+        <location filename="../searchlayers.ui" line="453"/>
+        <source>Choose which layers are searchable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../searchlayers.ui" line="456"/>
+        <source>Layers...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../searchlayers.ui" line="466"/>
         <source>Results -&gt; Layers</source>
         <translation>結果→レイヤー</translation>
     </message>
     <message>
-        <location filename="../searchlayers.ui" line="476"/>
+        <location filename="../searchlayers.ui" line="486"/>
         <source>Search</source>
         <translation>検索</translation>
     </message>
     <message>
-        <location filename="../searchlayers.ui" line="486"/>
+        <location filename="../searchlayers.ui" line="496"/>
         <source>Abort</source>
         <translation>中止</translation>
     </message>
     <message>
-        <location filename="../searchlayers.ui" line="493"/>
+        <location filename="../searchlayers.ui" line="503"/>
         <source>Clear</source>
         <translation>クリア</translation>
     </message>
     <message>
-        <location filename="../searchlayers.ui" line="500"/>
+        <location filename="../searchlayers.ui" line="510"/>
         <source>Exit</source>
         <translation>終了</translation>
     </message>
