@@ -17,8 +17,10 @@ import webbrowser
 
 from .searchDialog import LayerSearchDialog
 
+
 def tr(string):
     return QCoreApplication.translate('@default', string)
+
 
 class SearchLayers:
     def __init__(self, iface):
@@ -47,7 +49,7 @@ class SearchLayers:
         self.toolbar = self.iface.addToolBar(tr('Search Layers Toolbar'))
         self.toolbar.setObjectName('SearchLayersToolbar')
         self.toolbar.setToolTip(tr('Search Layers Toolbar'))
-        
+
         icon = QIcon(os.path.dirname(__file__) + "/icon.png")
         self.searchAction = QAction(icon, tr("Search Layers"), self.iface.mainWindow())
         self.searchAction.setObjectName('searchLayers')
@@ -68,14 +70,13 @@ class SearchLayers:
         self.iface.removeToolBarIcon(self.searchAction)
         # Remove Toolbar
         del self.toolbar
-    
+
     def showSearchDialog(self):
         if self.searchDialog is None:
             # All the work is done in the LayerSearchDialog
             self.searchDialog = LayerSearchDialog(self.iface, self.iface.mainWindow())
         self.searchDialog.show()
-        
+
     def help(self):
         '''Display a help page'''
         webbrowser.open('https://github.com/hamiltoncj/qgis-searchlayers-plugin', new=2)
-        

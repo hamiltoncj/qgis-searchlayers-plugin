@@ -8,21 +8,19 @@
  *                                                                         *
  ***************************************************************************/
 """
-import os
-import re
-
 from qgis.PyQt.QtCore import QObject, pyqtSignal
 
 from qgis.core import QgsCoordinateTransform, QgsCoordinateReferenceSystem, QgsProject, QgsVectorLayer, QgsFeatureRequest, QgsStringUtils
 import traceback
 
+
 class FuzzyWorker(QObject):
-    '''This does all the hard work. It takes all the search parameters and 
+    '''This does all the hard work. It takes all the search parameters and
     searches through the vector layers for a match.'''
     finished = pyqtSignal(bool)
     error = pyqtSignal(str)
     foundmatch = pyqtSignal(QgsVectorLayer, object, object, str, object, str)
-    
+
     def __init__(self, canvas, vlayers, infield, searchStr, algorithm, case_sensitive,
             fuzzy_contains, selectedField, maxResults, first_match_only,
             search_selected, match_metric, constrain_to_canvas):
@@ -42,7 +40,7 @@ class FuzzyWorker(QObject):
         self.match_metric = match_metric
         self.constrain_to_canvas = constrain_to_canvas
         self.epsg4326 = QgsCoordinateReferenceSystem('EPSG:4326')
-        
+
     def run(self):
         '''Worker Run routine'''
         self.found = 0
@@ -55,29 +53,28 @@ class FuzzyWorker(QObject):
             else:
                 for layer in self.vlayers:
                     self.searchLayer(layer)
-        except:
+        except Exception:
             self.error.emit(traceback.format_exc())
-            pass
         self.finished.emit(True)
-            
+
     def kill(self):
         '''Set a flag that we want to stop looking for matches.'''
         self.killed = True
-        
+
     def canvasExtent(self, layer):
         canvas_crs = self.canvas.mapSettings().destinationCrs()
         # We need to make sure the canvas extent is within its CRS bounds
-        extent = self.canvas.extent() # This is returned as EPSG:4326
+        extent = self.canvas.extent()  # This is returned as EPSG:4326
         epsg4326_to_canvas = QgsCoordinateTransform(self.epsg4326, canvas_crs, QgsProject.instance())
         legal_bounds = epsg4326_to_canvas.transform(canvas_crs.bounds())
         extent = legal_bounds.intersect(extent)
-        
+
         # transform the extent to the layer's crs
         layer_crs = layer.crs()
         trans = QgsCoordinateTransform(canvas_crs, layer_crs, QgsProject.instance())
         textent = trans.transform(extent)
-        return(textent)
-        
+        return (textent)
+
     def searchLayer(self, layer):
         '''Do a string search across all columns in a table'''
         if self.killed:
@@ -134,7 +131,7 @@ class FuzzyWorker(QObject):
                             self.foundmatch.emit(layer, feature, fnames[id], str(f), None, None)
                             self.found += 1
                             if self.found >= self.maxResults:
-                                self.killed=True
+                                self.killed = True
                                 return
                             if self.first_match_only:
                                 break
@@ -144,14 +141,13 @@ class FuzzyWorker(QObject):
                             self.foundmatch.emit(layer, feature, fnames[id], str(f), None, None)
                             self.found += 1
                             if self.found >= self.maxResults:
-                                self.killed=True
+                                self.killed = True
                                 return
                             if self.first_match_only:
                                 break
-                except:
-                    # self.error.emit(traceback.format_exc())
-                    pass
-        
+                except Exception:
+                    self.error.emit(traceback.format_exc())
+
     def searchFieldInLayer(self, layer, selectedField):
         '''Do a string search on a specific column in the table.'''
         if self.killed:
@@ -193,7 +189,7 @@ class FuzzyWorker(QObject):
                         self.foundmatch.emit(layer, feature, selectedField, s, None, None)
                         self.found += 1
                         if self.found >= self.maxResults:
-                            self.killed=True
+                            self.killed = True
                             return
                 else:
                     soundex = QgsStringUtils.soundex(s)
@@ -201,8 +197,7 @@ class FuzzyWorker(QObject):
                         self.foundmatch.emit(layer, feature, selectedField, str(f), None, None)
                         self.found += 1
                         if self.found >= self.maxResults:
-                            self.killed=True
+                            self.killed = True
                             return
-            except:
-                pass
-
+            except Exception:
+                self.error.emit(traceback.format_exc())

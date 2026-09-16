@@ -9,7 +9,6 @@
  ***************************************************************************/
 """
 import os
-import re
 import time
 import datetime
 
@@ -352,7 +351,7 @@ class LayerSearchDialog(QDialog, FORM_CLASS):
                 self.last_search_str = sstr
                 sstr2 = self.findString2Edit.text()
                 self.last_search_str2 = sstr2
-            except:
+            except Exception:
                 self.showErrorMessage(tr('Invalid Search String'))
                 self.setButtons(False)
                 return
